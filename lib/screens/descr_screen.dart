@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
+import 'package:cybersecurity_flutter_application/screens/topics_screen.dart';
 
 class DescriptionScreen extends StatelessWidget {
   const DescriptionScreen({super.key});
@@ -17,7 +18,7 @@ class DescriptionScreen extends StatelessWidget {
               Text(
                 'What is it?',
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 35,
                   fontWeight: FontWeight.bold,
                   color: AppColors.textPrimary,
                 ),
@@ -44,7 +45,7 @@ class DescriptionScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context, 
-                    MaterialPageRoute(builder: (context) => const DescriptionScreen()),
+                    MaterialPageRoute(builder: (context) => const TopicsScreen()),
                   );
                 },
                 child: const Text(
