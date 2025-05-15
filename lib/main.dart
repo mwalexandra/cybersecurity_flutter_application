@@ -1,3 +1,4 @@
+import 'package:cybersecurity_flutter_application/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,9 +16,9 @@ class CybersecurityApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Montserrat',
-        scaffoldBackgroundColor: const Color(0xFF1D2A3A),
+        scaffoldBackgroundColor: AppColors.darkblue,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Color(0xFFF4A5AE),
+          seedColor: AppColors.darkpink,
           brightness: Brightness.dark,
         )
       ),
@@ -53,7 +54,7 @@ class WelcomeScreen extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'Roxborough-CF',
                           fontSize: 50,
-                          color: Colors.white, //TODO pink color
+                          color: AppColors.textPrimary, //TODO pink color
                           height: 1.2,
                         ),
                       ),
@@ -63,14 +64,14 @@ class WelcomeScreen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w400,
-                          color: Colors.white, //TODO pink color
+                          color: AppColors.textPrimary, //TODO pink color
                           height: 1.2,
                         ),
                       ),
                       const SizedBox(height: 60),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFF4A5AE),
+                          backgroundColor: AppColors.lightpink,
                           padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 16),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -82,8 +83,8 @@ class WelcomeScreen extends StatelessWidget {
                         child: const Text(
                          'Enter',
                           style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black87,
+                            fontSize: 20,
+                            color: AppColors.black,
                           ),
                         ),
                       ),
