@@ -1,3 +1,4 @@
+import 'package:cybersecurity_flutter_application/screens/descr_screen.dart';
 import 'package:cybersecurity_flutter_application/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -78,7 +79,10 @@ class WelcomeScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          // TODO go to next screen
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(builder: (context) => const DescriptionScreen()),
+                          );
                         },
                         child: const Text(
                          'Enter',
