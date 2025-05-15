@@ -18,7 +18,7 @@ class CybersecurityApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         scaffoldBackgroundColor: AppColors.darkblue,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.darkpink,
+          seedColor: AppColors.darkblue,
           brightness: Brightness.dark,
         )
       ),
@@ -54,17 +54,17 @@ class WelcomeScreen extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'Roxborough-CF',
                           fontSize: 50,
-                          color: AppColors.textPrimary, //TODO pink color
+                          color: AppColors.textPrimary, 
                           height: 1.2,
                         ),
                       ),
                       Text(
-                        "TRAINING APP",    //Cybersecurity\n
+                        "TRAINING APP",    
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w400,
-                          color: AppColors.textPrimary, //TODO pink color
+                          color: AppColors.textPrimary, 
                           height: 1.2,
                         ),
                       ),
