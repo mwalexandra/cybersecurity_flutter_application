@@ -24,9 +24,9 @@ class DescriptionScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               Text(
-                'Diese App hilft dir, die Grundlagen der digitalen Sicherheit zu lernen. Du wirst einfache Tipps erhalten, wie du deine Daten und Geräte schützen kannst.',
+                'This app will help you feel safer in the digital world. You will get a bit of theory and practical tips to protect your data and devices from cybercriminals.\n\n At the end, you will be able to answer a few questions based on the material you have read.',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 18,
                   color: AppColors.textPrimary,
                   height: 1.4,
                 ),
@@ -35,22 +35,23 @@ class DescriptionScreen extends StatelessWidget {
               const SizedBox(height: 40),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.darkblue,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 32, vertical: 14),
+                  backgroundColor: AppColors.lightpink,
+                  padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 16),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                 ),
                 onPressed: () {
-                  // TODO: Переход к следующему экрану
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => const DescriptionScreen()),
+                  );
                 },
                 child: const Text(
                   'Next',
                   style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.darkpink,
+                    fontSize: 20,
+                    color: AppColors.black,
                   ),
                 ),
               ),
