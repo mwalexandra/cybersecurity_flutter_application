@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:cybersecurity_flutter_application/screens/training_screen.dart';
 
 class TopicsScreen extends StatelessWidget {
   const TopicsScreen({super.key});
@@ -72,7 +73,10 @@ class TopicsScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    // TODO: переход к первому экрану обучения
+                    Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => const TrainingScreen()),
+                    );
                   },
                   child: const Text(
                     'Start',
