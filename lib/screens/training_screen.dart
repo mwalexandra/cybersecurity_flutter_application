@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:cybersecurity_flutter_application/screens/quiz_intro_screen.dart';
 
 class TrainingPage {
   final String text;
@@ -71,8 +72,13 @@ class _TrainingScreenState extends State<TrainingScreen> {
     if (currentPage < pages.length - 1) {
       setState(() {
         currentPage++;
-        _initYoutube();
+        _initYoutube(); 
       });
+    } else {
+      Navigator.pushReplacement( // there is no back option
+        context,
+        MaterialPageRoute(builder: (context) => const QuizIntroScreen()),
+      );
     }
   }
 
