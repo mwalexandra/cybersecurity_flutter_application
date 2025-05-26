@@ -8,7 +8,7 @@ class QuizIntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.darkgrey,
+      backgroundColor: AppColors.lightpink,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -27,18 +27,9 @@ class QuizIntroScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context); // back to Training
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.lightpink,
-                    ),
-                    child: const Text('Back', style: TextStyle(color: AppColors.darkblue)),
-                  ),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -48,8 +39,40 @@ class QuizIntroScreen extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.darkblue,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 60, vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
-                    child: const Text('Start Quiz'),
+                    child: const Text(
+                      'Start Quiz',
+                      style: TextStyle(
+                        fontSize: 28,
+                        color: AppColors.lightpink,
+                      )
+                      ),
+                  ),
+                  const SizedBox(height: 24),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context); // back to Training
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.lightpink,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 60, vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    child: const Text(
+                      'Back', 
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColors.darkblue
+                        )
+                      ),
                   ),
                 ],
               ),

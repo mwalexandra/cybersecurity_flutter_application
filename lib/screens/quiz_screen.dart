@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
+import 'quiz_result_screen.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -24,6 +25,16 @@ class _QuizScreenState extends State<QuizScreen> {
 
   final Map<int, int> selectedAnswers = {};
   bool showResult = false;
+
+  int countCorrectAnswers() {
+    int correct = 0;
+    for (int i = 0; i < questions.length; i++) {
+      if (selectedAnswers[i] == questions[i].correctIndex) {
+        correct++;
+      }
+    }
+    return correct;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,12 +93,12 @@ class _QuizScreenState extends State<QuizScreen> {
                               style: const TextStyle(color: Colors.white),
                             ),
                             onTap: showResult
-                                ? null
-                                : () {
-                                    setState(() {
-                                      selectedAnswers[index] = optIndex;
-                                    });
-                                  },
+                              ? null
+                              : () {
+                                  setState(() {
+                                    selectedAnswers[index] = optIndex;
+                                  });
+                                },
                           ),
                         );
                       }),
@@ -99,9 +110,15 @@ class _QuizScreenState extends State<QuizScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                setState(() {
-                  showResult = true;
-                });
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => QuizResultScreen(
+                      total: questions.length,
+                      correct: countCorrectAnswers(),
+                    ),
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.lightpink,
