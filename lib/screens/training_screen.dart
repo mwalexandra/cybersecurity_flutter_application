@@ -75,7 +75,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
         _initYoutube(); 
       });
     } else {
-      Navigator.pushReplacement( // there is no back
+      Navigator.pushReplacement( // there is no back button
         context,
         MaterialPageRoute(builder: (context) => const QuizIntroScreen()),
       );
