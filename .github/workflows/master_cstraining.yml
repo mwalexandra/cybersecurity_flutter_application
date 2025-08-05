@@ -35,6 +35,11 @@ jobs:
           name: node-app
           path: .
 
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -53,3 +58,4 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_00DA6FD20A5A4B7EA0422DB829D97B47 }}
+          
