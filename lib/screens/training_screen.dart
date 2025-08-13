@@ -219,7 +219,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
     } else if(screenWidth < 1200) {
       return _buildTabletLayout(context, page);
     } else {
-      return _buildDesktopLayout(context, page);
+      return _buildWebLayout(context, page);
     } 
   }
 
