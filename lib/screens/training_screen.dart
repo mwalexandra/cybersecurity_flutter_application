@@ -97,7 +97,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
     super.dispose();
   }
 
-  @override
+/*  @override
   Widget build(BuildContext context) {
     final page = pages[currentPage];
 
@@ -206,6 +206,149 @@ class _TrainingScreenState extends State<TrainingScreen> {
           ),
         ),
       ),
+    );
+  }*/
+
+  @override
+  Widget build(BuildContext context) {
+    final page = pages[currentPage];
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    if(screenWidth < 600){
+      return _buildMobileLayout(context, page);
+    } else if(screenWidth < 1200) {
+      return _buildTabletLayout(context, page);
+    } else {
+      return _buildDesktopLayout(context, page);
+    } 
+  }
+
+  Widget _buildMobileLayout(BuildContext context, TrainingPage page) {
+    return Scaffold(
+      backgroundColor: AppColors.darkblue,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: _buildContent(context, page, 200, 16),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTabletLayout(BuildContext context, TrainingPage page) {
+    return Scaffold(
+      backgroundColor: AppColors.darkblue,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 48.0, vertical: 32.0),
+          child: _buildContent(context, page, 300, 20),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildWebLayout(BuildContext context, TrainingPage page) {
+    return Scaffold(
+      backgroundColor: AppColors.darkblue,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 40.0),
+          child: _buildContent(context, page, 400, 22),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildContent(BuildContext context, TrainingPage page, double mediaHeight, double fontSize) {
+    return Column(
+      children: [
+        if (page.youtubeUrl != null && _youtubeController != null)
+          YoutubePlayerBuilder(
+            player: YoutubePlayer(
+              controller: _youtubeController!,
+              showVideoProgressIndicator: true,
+              progressIndicatorColor: AppColors.lightpink,
+            ),
+            builder: (context, player) {
+              return Column(
+                children: [
+                  SizedBox(height: mediaHeight, child: player),
+                  const SizedBox(height: 24),
+                  Text(
+                    page.text,
+                    style: TextStyle(
+                      fontSize: fontSize,
+                      color: Colors.white,
+                      height: 1.6,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              );
+            },
+          )
+        else ...[
+          if (page.imagePath != null)
+            Image.asset(
+              page.imagePath!,
+              height: mediaHeight,
+              fit: BoxFit.contain,
+            ),
+          const SizedBox(height: 24),
+          Text(
+            page.text,
+            style: TextStyle(
+              fontSize: fontSize,
+              color: Colors.white,
+              height: 1.6,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+        const Spacer(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            if (currentPage > 0)
+              ElevatedButton(
+                onPressed: prevPage,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.lightgrey,
+                  padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: const Text(
+                  'Back',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: AppColors.darkblue,
+                  ),
+                ),
+              )
+            else
+              const SizedBox(width: 100),
+            ElevatedButton(
+              onPressed: nextPage,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.lightpink,
+                padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: const Text(
+                'Next',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: AppColors.darkblue,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
