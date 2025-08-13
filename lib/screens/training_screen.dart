@@ -109,11 +109,35 @@ class _TrainingScreenState extends State<TrainingScreen> {
           child: Column(
             children: [
               if (page.youtubeUrl != null && _youtubeController != null)
-                YoutubePlayer(
+                YoutubePlayerBuilder(
+                  player: YoutubePlayer(
                   controller: _youtubeController!,
                   showVideoProgressIndicator: true,
+                  progressIndicatorColor: AppColors.lightpink,
+                  onReady: () {
+                    debugPrint('Player is ready.');
+                  },
+                ),
+                  builder: (context, player) {
+                    return Column(
+                      children: [
+                        player,
+                        const SizedBox(height: 24),
+                        Text(
+                          page.text,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                            height: 1.4,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    );
+                  },
                 )
-              else if (page.imagePath != null)
+              else ... [
+                if (page.imagePath != null)
                 Image.asset(
                   page.imagePath!,
                   height: 200,
@@ -130,30 +154,31 @@ class _TrainingScreenState extends State<TrainingScreen> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const Spacer(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Back Button
-                    if (currentPage > 0)
-                      ElevatedButton(
-                        onPressed: prevPage,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.lightgrey,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 60, vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
+              ], 
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Back Button
+                  if (currentPage > 0)
+                    ElevatedButton(
+                      onPressed: prevPage,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.lightgrey,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 60, vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const Text(
-                          'Back',
-                          style: TextStyle(
+                      ),
+                      child: const Text(
+                        'Back',
+                        style: TextStyle(
                           fontSize: 20,
                           color: AppColors.darkblue,
-                          ),
                         ),
-                      )
+                      ),
+                    )
                   else
                     const SizedBox(width: 100), // Empty box
                   // Next Button
@@ -170,8 +195,8 @@ class _TrainingScreenState extends State<TrainingScreen> {
                     child: const Text(
                       'Next',
                       style: TextStyle(
-                      fontSize: 20,
-                      color: AppColors.darkblue,
+                        fontSize: 20,
+                        color: AppColors.darkblue,
                       ),
                     ),
                   ),
