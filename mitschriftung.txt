@@ -1,0 +1,26 @@
+Thema: außen 
+
+Написать приложение для того, чтобы логиниться в модулях, которые выбираются в школе. 
+
+
+* В конце может быть App из суммы всех решений группы. 
+
+1. По адресу получить список имеющихся модулей (JSON)
+2. Какие модули можно комбинировать, какие нет
+3. Веб-приложение и мобильное приложение: responsive ! 
+4. ! Nielson-Heuristik (правила хорошего интерфейса, 10 пунктов). Эти пункты должны быть учтены, важные для моего проекта или все. Эти пункты в оценке окончательной оценки
+5. ! MoCo-Arbeitsweise: Storyboard, Usecase, Pretotype was auch immer
+
+Nielson-Heuristik
+
+Картинка в бэкстейдж.
+1. Sichtbarkeit des Systemstatus. Юзер должен постоянно понимать, что происходит.
+2. Übereinstimmung von Systemen und Wirklichkeit. Система говорит на языке пользователя в понятном и логичном порядке. 
+3. Nutzerkontrolle und Freiheit. Можно случайные действия откатить назад.
+4. Beständigkeit und Standarts. Юзер не должен думать, ведут ли разные названия к одному и тому же результату.
+5. Fehlervermeidung. Хороший дизайн - лучший способ избегать неверных дейтвий от пользователя.
+6. Wiedererkennung statt Erinnerung.
+7. Flexibilität und Effizienz.
+8. Ästetisches und minimalistisches Design.
+9. Hilfestellung bei Fehlern. Понятная подсказка юзеру при вознковении ошибки. 
+10. Hilfe und Doku.
